@@ -56,16 +56,40 @@ def test_get_newton_sqrt():
     assert get_newton_sqrt(6, 3) == 2.607142857142857
 
 
+def test_is_palindrome():
+    assert is_palindrome(252) == True
+    assert is_palindrome(123454321) == True
+    assert is_palindrome(135521) == False
+
+
+def is_palindrome(n):
+    '''
+    Determina daca n este palindrom ( palindrom, adica oglinditul numarului este egal cu numarul initial )
+    :param n: nr natural
+    :return: True daca este palindrom, altfel False
+    '''
+    aux = int(n)
+    ogl = int(0)
+    while n:
+        ogl = ogl * int(10) + int(n) % int(10)
+        n = int(n) // int(10)
+    if aux == ogl:
+        return True
+    return False
+
+
 if __name__ == '__main__':
 
     test_get_newton_sqrt()
     test_get_goldbach()
+    test_is_palindrome()
 
     while True:
         print("Optiuni:")
         print("1. Conjunctura lui Goldbach")
         print("2. Calcularea radicalului folosind metoda lui Newton")
-        print("3. Termina programul")
+        print("3. Verifica daca un numar este palindrom")
+        print("4. Termina programul")
         option = input("Scrie numarul aferent optiunii: ")
 
         if option == "1":
@@ -83,6 +107,11 @@ if __name__ == '__main__':
             print(get_newton_sqrt(n, steps))
 
         if option == "3":
+            n = input("Introdu numarul: ")
+            print("Valoarea de adevar a propozitiei \" " + str(n) + " este palindrom \", este:", end = " ")
+            print(is_palindrome(n))
+
+        if option == "4":
             break
         print()
     exit(0)
