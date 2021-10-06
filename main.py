@@ -77,13 +77,7 @@ def is_palindrome(n):
         return True
     return False
 
-
-if __name__ == '__main__':
-
-    test_get_newton_sqrt()
-    test_get_goldbach()
-    test_is_palindrome()
-
+def main():
     while True:
         print("Optiuni:")
         print("1. Conjunctura lui Goldbach")
@@ -103,15 +97,23 @@ if __name__ == '__main__':
         if option == "2":
             n = input("Introdu numarul: ")
             steps = input("Introdu numarul de pasi: ")
-            print("Solutia este:", end = " ")
+            print("Solutia este:", end=" ")
             print(get_newton_sqrt(n, steps))
 
         if option == "3":
             n = input("Introdu numarul: ")
-            print("Valoarea de adevar a propozitiei \" " + str(n) + " este palindrom \", este:", end = " ")
+            print("Valoarea de adevar a propozitiei \" " + str(n) + " este palindrom \", este:", end=" ")
             print(is_palindrome(n))
 
         if option == "4":
             break
         print()
+
+if __name__ == '__main__':
+
+    test_get_newton_sqrt()
+    test_get_goldbach()
+    test_is_palindrome()
+
+    main()
     exit(0)
